@@ -2,6 +2,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -9,7 +10,8 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
             "~": path.resolve(__dirname, 'wwwroot')
-        }
+        },
+        extensions: ['.js', '.vue']
     },
     entry: {
         app_index: ['./wwwroot/app.js'],
@@ -44,7 +46,13 @@ module.exports = {
             },
             {
                 test: /\.vue$/,
+                exclude: /(node_modules)/,
                 loader: 'vue-loader'
+            },
+            {
+                test: /\.js?$/,
+                exclude: /(node_modules)/,
+                use: 'babel-loader'
             },
             {
                 test: /\.css$/,
@@ -63,6 +71,15 @@ module.exports = {
             filename: "bundle.css"
         }),
         new CleanWebpackPlugin(),
-        new VueLoaderPlugin()
-    ]
+        new VueLoaderPlugin(),
+        new HtmlWebpackPlugin({
+            template: './pages/index.cshtml'
+        })
+    ],
+    externals: {
+        // global app config object
+        config: JSON.stringify({
+            apiUrl: 'https://localhost:7125/'
+        })
+    }
 };

@@ -1,0 +1,28 @@
+<head><script defer="defer" src="/app_index.js"></script></head>@page @model Flexy.API.Pages.IndexModel @{ ViewData["Title"] = "Flexy Dashboard"; } @section Scripts {<script src="~/dist/app_index.js"></script>}<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><div id="app"><rheader></rheader><left-aside></left-aside><div class="common"><div style="padding:10px"><router-view></router-view></div></div></div><style>.common {
+    padding-top: 100px;
+    padding-left: 256px;
+  }
+  .top {
+    display:flex;
+    justify-content: start; 
+  }
+
+  .center {
+    display:flex;
+    justify-content: start; 
+    padding-top:10px;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+@@media screen and (max-width: 900px) {
+  .common {
+      display: block;
+  }
+}</style>

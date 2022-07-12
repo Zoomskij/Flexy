@@ -31,8 +31,4 @@
     <None Include="wwwroot\dist\bundle.js.map" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="npm install &amp;&amp; npm run dev" />
-  </Target>
-
 </Project>
