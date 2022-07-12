@@ -31,7 +31,7 @@ namespace Flexy.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //TODO: move to appsettings.json
-            optionsBuilder.UseSqlServer(@"Data Source=.\sqlexpress;Initial Catalog=Flexy;Integrated Security=True;");
+            optionsBuilder.UseSqlServer(@"Data Source=SQL8002.site4now.net;Initial Catalog=db_a8a07d_flexy;User Id=db_a8a07d_flexy_admin;Password=Testpass12");
         }
 
         public FlexyContext(IConfiguration configuration)
