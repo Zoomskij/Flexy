@@ -348,3 +348,10 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/wwwroot/dist
+/package-lock.json
+
+# Backup files
+*.bak
+/src/appsettings.local.json
+/src/Reflexobot.API/wwwroot/dist
