@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Flexy.Entities;
 using Flexy.Models;
+using Flexy.Models.Meettings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,11 @@ using System.Threading.Tasks;
 
 namespace Flexy.Services.Mapper
 {
-    public class UserProfile : Profile
+    public class MeetingProfile : Profile
     {
-        public UserProfile()
+        public MeetingProfile()
         {
-            CreateMap<User, AuthenticateResponse>();
-
-            CreateMap<RegisterRequest, User>();
-
-            CreateMap<UpdateRequest, User>()
-                .ForAllMembers(x => x.Condition(
-                    (src, dest, prop) =>
-                    {
-                    if (prop == null) return false;
-                        if (prop.GetType() == typeof(string) && string.IsNullOrEmpty((string)prop)) return false;
-
-                        return true;
-                    }
-                ));
+            CreateMap<AddMeetingRequest, Meeting>();
         }
     }
 }

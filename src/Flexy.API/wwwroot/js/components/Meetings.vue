@@ -2,9 +2,12 @@
     <div>
         <div style="display:flex; justify-content:space-between; padding-bottom:10px">
             <span><b>Встречи</b></span>
-            <el-button type="primary" size="small">Создать новую встречу</el-button>
+            <router-link to="/addmeeting" class="btn btn-link">Создать новую встречу</router-link>
         </div>
 
+        <div v-for="meeting in meetings">
+            <span>{{meeting.Name}}!</span>
+        </div>
         <!--<div v-for="course in courses" style="padding-left:10px; display: flex;">
             <course :course="course" @listen="getCourses()"></course>
         </div>-->
@@ -23,6 +26,7 @@
 
 <script>
     import Meeting from "~/js/components/Meeting.vue";
+    
     export default {
         name: 'meetings',
         components: { Meeting },
@@ -35,13 +39,19 @@
 
         },
         methods: {
-
+            getMeetings: function () {
+                var self = this;
+                this.$axios.get('/meetings')
+                    .then(function (response) {
+                        self.meetings = response.data;
+                    });
+            },
         },
         created() {
 
         },
         mounted() {
-
+            this.getMeetings();
         }
     }
 </script>

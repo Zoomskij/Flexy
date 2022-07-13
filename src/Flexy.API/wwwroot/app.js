@@ -10,6 +10,8 @@ import ruLocale from 'element-ui/lib/locale/lang/ru-RU'
 
 import axios from 'axios';
 
+axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
+
 Vue.prototype.$axios = axios;
 
 import { alert } from '~/js/alert.module.js';
@@ -29,6 +31,8 @@ import Meetings from "~/js/components/Meetings.vue";
 import HomePage from '~/js/components/HomePage.vue'
 import LoginPage from '~/js/components/LoginPage.vue'
 import RegisterPage from '~/js/components/RegisterPage.vue'
+
+import AddMeeting from '~/js/components/AddMeeting.vue'
 
 Vue.use(VueRouter);
 locale.use(ruLocale);
@@ -56,7 +60,8 @@ function startOnLoad() {
             { path: '/', component: HomePage },
             { path: '/login', component: LoginPage },
             { path: '/register', component: RegisterPage },
-
+            { path: '/addmeeting', component: AddMeeting },
+            
 
             /* { path: '/', caseSensitive: false, component: Scenario },*/
             //{ path: '/', caseSensitive: false, component: Index },

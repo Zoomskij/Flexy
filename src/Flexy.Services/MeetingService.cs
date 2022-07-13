@@ -1,4 +1,6 @@
-﻿using Flexy.Entities;
+﻿using AutoMapper;
+using Flexy.Entities;
+using Flexy.Models.Meettings;
 using Flexy.Repositories.Interfaces;
 using Flexy.Services.Interfaces;
 using System;
@@ -12,21 +14,21 @@ namespace Flexy.Services
     public class MeetingService : IMeetingService
     {
         private readonly IMeetingRepository _meetingRepository;
-        public MeetingService(IMeetingRepository meetingRepository)
+        private readonly IMapper _mapper;
+        public MeetingService(IMeetingRepository meetingRepository, IMapper mapper)
         {
             _meetingRepository = meetingRepository;
+            _mapper = mapper;
         }
 
         public IEnumerable<Meeting> Get()
         {
             return _meetingRepository.Get();
         }
-        public async Task AddAsync(string text)
+        public async Task AddAsync(AddMeetingRequest meetingRequest)
         {
-            var meeting = new Meeting
-            {
-                Name = text,
-            };
+            var meeting = _mapper.Map<Meeting>(meetingRequest);
+            meeting.StartDate = DateTime.Now;
             await _meetingRepository.AddAsync(meeting);
         }
         public async Task UpdateAsync(Meeting meeting)

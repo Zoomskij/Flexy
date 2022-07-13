@@ -1,4 +1,5 @@
 ﻿using Flexy.Entities;
+using Flexy.Models.Meettings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Flexy.Services.Interfaces
     public interface IMeetingService
     {
         IEnumerable<Meeting> Get();
-        Task AddAsync(string text);
+        Task AddAsync(AddMeetingRequest meetingRequest);
         Task UpdateAsync(Meeting meeting);
         Task DeleteAsync(Guid guid);
     }

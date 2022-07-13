@@ -54,6 +54,7 @@ export default {
                 console.log(response.data);
                 if (response.data.token) {
                     localStorage.setItem('user', JSON.stringify(response.data));
+                    localStorage.setItem('token', response.data.token);
                     self.user = response.data;
                 }
                 return response.data;

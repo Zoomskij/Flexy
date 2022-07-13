@@ -64,7 +64,7 @@ namespace Flexy.Services
 
             // map model to new user object
             var user = _mapper.Map<User>(model);
-
+            user.Role = Role.User;
             // hash password
             user.PasswordHash = BCryptNet.HashPassword(model.Password);
 

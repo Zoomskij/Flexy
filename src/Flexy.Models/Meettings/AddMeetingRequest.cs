@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flexy.Entities
+namespace Flexy.Models.Meettings
 {
-    public class Meeting : BaseEntity
+    public class AddMeetingRequest
     {
         public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime StartDate { get; set; }
-        public DateTime? FinishDate { get; set; }
-        public string Name { get; set; }
+        public DateTime StartDate { get; set; } = DateTime.Now;
+        public DateTime? FinishDate { get; set; } = DateTime.Now;
+        public string? Name { get; set; }
         public string? Description { get; set; }
         public string? Address { get; set; }
         public bool IsMetro { get; set; } = false;
@@ -19,8 +19,5 @@ namespace Flexy.Entities
         public string? Category { get; set; }
         public string? Status { get; set; }
         public string? Img { get; set; }
-        public User? Owner { get; set; }
-        public IEnumerable<User>? Users { get; set; }
-
     }
 }

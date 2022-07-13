@@ -49,6 +49,9 @@ services.AddTransient<IGoalService, GoalService>();
 services.AddTransient<IScenarioRepository, ScenarioRepository>();
 services.AddTransient<IScenarioService, ScenarioService>();
 
+services.AddTransient<IMeetingRepository, MeetingRepository>();
+services.AddTransient<IMeetingService, MeetingService>();
+
 services.AddTransient<IImageService, ImageService>();
 
 services.AddDbContext<FlexyContext>();
@@ -77,6 +80,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseAuthentication();
+// custom jwt auth middleware
+app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 

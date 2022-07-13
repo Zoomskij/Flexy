@@ -14,7 +14,7 @@
                         </span>
                         <span style="padding-right:10px">{{user.username}}</span>
                         <el-button type="primary" @click="logout" v-if="user.token">Выйти</el-button>
-                        <router-link to="/login" class="btn btn-link">
+                        <router-link to="/login" class="btn btn-link" v-else>
                             <el-button type="primary">Войти</el-button>
                         </router-link>
                     </div>
@@ -67,6 +67,7 @@
             },
             logout: function() {
                 localStorage.removeItem('user');
+                localStorage.removeItem('token');
                 this.user = [];
             }
         },
