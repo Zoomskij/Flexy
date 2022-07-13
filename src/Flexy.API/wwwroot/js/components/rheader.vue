@@ -132,6 +132,5 @@
         width: 100%;
         height: 100px;
         z-index:1000;
-        background-color:white;
     }
 </style>

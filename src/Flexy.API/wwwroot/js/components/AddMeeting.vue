@@ -54,6 +54,7 @@
                 var self = this;
                 this.$axios.post('/meetings', this.meeting).then(function (response) {
                     console.log(response);
+                    document.location.href = '/meetings';
                 }).catch(function (error) {
                     console.log(error);
                 });

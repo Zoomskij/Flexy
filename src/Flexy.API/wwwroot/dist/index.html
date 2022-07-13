@@ -1,4 +1,28 @@
-<head><script defer="defer" src="/app_index.js"></script></head>@page @model Flexy.API.Pages.IndexModel @{ ViewData["Title"] = "Flexy Dashboard"; } @section Scripts {<script src="~/dist/app_index.js"></script>}<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><div id="app"><rheader></rheader><left-aside></left-aside><div class="common"><div style="padding:10px"><router-view></router-view></div></div></div><style>.common {
+<head><script defer="defer" src="/app_index.js"></script></head>@page @model Flexy.API.Pages.IndexModel @{ ViewData["Title"] = "Flexy Dashboard"; } @section Scripts {<script src="~/dist/app_index.js"></script>}<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"><div id="app" class="app"><rheader></rheader><left-aside></left-aside><div class="common"><div style="padding:10px"><router-view></router-view></div></div></div><style>.app {
+      
+  }
+  
+  .f1 {
+    font-family: Cabin;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+  }
+
+  .f2 {
+    font-family: Cabin;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 36px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #E2B988;
+  }
+
+  .common {
     padding-top: 100px;
     padding-left: 256px;
   }
