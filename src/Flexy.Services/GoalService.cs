@@ -21,12 +21,8 @@ namespace Flexy.Services
         {
             return _goalRepository.Get();
         }
-        public async Task AddAsync(string text)
+        public async Task AddAsync(Goal goal)
         {
-            var goal = new Goal
-            {
-                Text = text,
-            };
             await _goalRepository.AddAsync(goal);
         }
         public async Task UpdateAsync(Goal goal)

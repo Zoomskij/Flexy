@@ -57,6 +57,7 @@
                     if (response.data.token) {
                         localStorage.setItem('user', JSON.stringify(response.data));
                         self.user = response.data;
+                        document.location.href = '/';
                     }
                     return response.data;
                 }).catch(function (error) {

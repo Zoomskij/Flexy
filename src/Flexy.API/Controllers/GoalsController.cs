@@ -24,9 +24,17 @@ namespace Flexy.API.Controllers
 
         [HttpPost]
         [Route("")]
-        public IActionResult AddGoal(string text)
+        public IActionResult AddGoal([FromBody] GoalDto goalDto)
         {
-            _goalService.AddAsync(text);
+            var currentUser = (User)HttpContext.Items["User"];
+            if (currentUser == null)
+                return BadRequest();
+            Goal goal = new Goal
+            {
+                Text = goalDto.Text,
+                Owner = currentUser
+            };
+            _goalService.AddAsync(goal);
             return Ok();
         }
 
@@ -45,5 +53,11 @@ namespace Flexy.API.Controllers
             var achievments = _goalService.DeleteAsync(guid);
             return Ok();
         }
+
     }
+}
+
+public class GoalDto
+{
+    public string Text { get; set; }
 }

@@ -8,14 +8,16 @@
                 </el-alert>
                 <el-divider></el-divider>
             </span>
+            <add-goal @listen="getGoals"></add-goal>
         </el-card>
     </div>
 </template>
 
 <script>
+    import AddGoal from "~/js/components/AddGoal.vue";
     export default {
         name: 'goals',
-
+        components: { 'add-goal': AddGoal },
         data() {
             return {
                 goals: []

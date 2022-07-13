@@ -29,7 +29,11 @@ namespace Flexy.API.Controllers
         [Route("")]
         public async Task<IActionResult> AddCourse([FromBody] AddMeetingRequest meeting)
         {
-            var user = User;
+            var currentUser = (User)HttpContext.Items["User"];
+            if (currentUser == null)
+                return BadRequest();
+
+            meeting.Owner = currentUser;
             await _meetingService.AddAsync(meeting);
             return Ok();
         }

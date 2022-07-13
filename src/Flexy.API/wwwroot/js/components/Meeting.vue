@@ -1,11 +1,13 @@
 ﻿<template>
-    <div>
+    <div style="max-width:340px; padding-right:10px">
         <el-card class="box-card">
-            <div style="display: flex; justify-content:space-between; vertical-align:central">
+            <div style="display: flex; justify-content:space-between; vertical-align:central; align-items: center">
                 <div>
-                    <img :src="meeting.img" widht="150" height="100" />
-                    <span>{{meeting.name}}</span>
-                    <span>{{meeting.description}}</span>
+                    <h2>{{meeting.name}}</h2>
+                    <img :src="meeting.img" width="300" height="200" />
+                    <h4>{{meeting.description}}</h4>
+                    <br />
+                    <el-tag>{{meeting.category}}</el-tag>
                 </div>
             </div>
 

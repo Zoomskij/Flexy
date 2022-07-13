@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flexy.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,6 @@ namespace Flexy.Models.Meettings
         public string? Category { get; set; }
         public string? Status { get; set; }
         public string? Img { get; set; }
+        public User? Owner { get; set; }
     }
 }

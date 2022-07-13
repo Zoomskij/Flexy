@@ -56,6 +56,7 @@ export default {
                     localStorage.setItem('user', JSON.stringify(response.data));
                     localStorage.setItem('token', response.data.token);
                     self.user = response.data;
+                    document.location.href = '/';
                 }
                 return response.data;
             }).catch(function (error) {

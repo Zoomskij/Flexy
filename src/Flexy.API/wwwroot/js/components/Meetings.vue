@@ -5,8 +5,8 @@
             <router-link to="/addmeeting" class="btn btn-link">Создать новую встречу</router-link>
         </div>
 
-        <div v-for="meeting in meetings">
-            <meeting :meeting="meeting"></meeting>
+        <div style="display: flex;">
+            <meeting :meeting="meeting" v-for="meeting in meetings"></meeting>
         </div>
     </div>
 </template>

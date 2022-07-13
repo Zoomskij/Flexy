@@ -10,7 +10,7 @@ namespace Flexy.Services.Interfaces
     public interface IGoalService
     {
         IEnumerable<Goal> Get();
-        Task AddAsync(string text);
+        Task AddAsync(Goal goal);
         Task UpdateAsync(Goal goal);
         Task DeleteAsync(Guid goalGuid);
     }

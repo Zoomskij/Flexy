@@ -4,6 +4,7 @@ using Flexy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Flexy.Data.Migrations
 {
     [DbContext(typeof(FlexyContext))]
-    partial class FlexyContextModelSnapshot : ModelSnapshot
+    [Migration("20220713180756_goals")]
+    partial class goals
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -83,10 +85,8 @@ namespace Flexy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Img")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OwnerId")
-                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -96,8 +96,6 @@ namespace Flexy.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Guid");
-
-                    b.HasIndex("OwnerId");
 
                     b.ToTable("Goals");
                 });
@@ -562,15 +560,6 @@ namespace Flexy.Data.Migrations
                         .HasForeignKey("GoalGuid");
 
                     b.Navigation("Goal");
-                });
-
-            modelBuilder.Entity("Flexy.Entities.Goal", b =>
-                {
-                    b.HasOne("Flexy.Entities.User", "Owner")
-                        .WithMany()
-                        .HasForeignKey("OwnerId");
-
-                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("Flexy.Entities.GroupEntity", b =>
