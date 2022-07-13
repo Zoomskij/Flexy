@@ -4,6 +4,7 @@ using Flexy.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Flexy.Data.Migrations
 {
     [DbContext(typeof(FlexyContext))]
-    partial class FlexyContextModelSnapshot : ModelSnapshot
+    [Migration("20220713070210_ImgForMeeting")]
+    partial class ImgForMeeting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,6 +168,7 @@ namespace Flexy.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Img")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsMetro")

@@ -22,6 +22,7 @@
                     { name: 'Сценарии', icon: 'el-icon-connection', url: '/scenario' },
                     { name: 'Персонажи', icon: 'el-icon-user', url: '/teachers' },
                     { name: 'Достижения', icon: 'el-icon-medal-1', url: '/achievments' },
+                    { name: 'Встречи', icon: 'el-icon-medal-1', url: '/meetings' },
                 ],
             }
         },

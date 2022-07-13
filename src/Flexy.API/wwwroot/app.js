@@ -24,6 +24,7 @@ import Teachers from "~/js/components/teachers.vue";8
 import Goals from "~/js/components/goals.vue";
 import RHeader from "~/js/components/rheader.vue";
 import LeftAside from "~/js/components/leftaside.vue";
+import Meetings from "~/js/components/Meetings.vue";
 
 import HomePage from '~/js/components/HomePage.vue'
 import LoginPage from '~/js/components/LoginPage.vue'
@@ -64,6 +65,7 @@ function startOnLoad() {
             { path: '/scenario', caseSensitive: false, component: Scenario },
             { path: '/achievments', caseSensitive: false, component: Achievments },
             { path: '/goals', caseSensitive: false, component: Goals },
+            { path: '/meetings', caseSensitive: false, component: Meetings },
 
             // otherwise redirect to home
             { path: '*', redirect: '/' }
@@ -93,6 +95,7 @@ function startOnLoad() {
     var app = new Vue({
         el: '#app',
         router,
+        store,
         data: {
             achievments: [],
 

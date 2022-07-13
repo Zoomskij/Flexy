@@ -18,6 +18,7 @@ namespace Flexy.Entities
         public string? Metro { get; set; }
         public string? Category { get; set; }
         public string? Status { get; set; }
+        public string? Img { get; set; }
         public User Owner { get; set; }
         public IEnumerable<User>? Users { get; set; }
 
