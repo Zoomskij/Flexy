@@ -6,21 +6,8 @@
         </div>
 
         <div v-for="meeting in meetings">
-            <span>{{meeting.Name}}!</span>
+            <meeting :meeting="meeting"></meeting>
         </div>
-        <!--<div v-for="course in courses" style="padding-left:10px; display: flex;">
-            <course :course="course" @listen="getCourses()"></course>
-        </div>-->
-
-        <!--<el-dialog title="Добавить курс" :visible.sync="isNewWindow">
-            <el-input placeholder="Название курса" v-model="courseEntity.name"></el-input>
-            <el-input placeholder="Описание курса" v-model="courseEntity.description" style="padding-top:10px"></el-input>
-            <el-input placeholder="Url картинки" v-model="courseEntity.img" style="padding-top:10px"></el-input>
-
-            <span slot="footer" class="dialog-footer">
-                <el-button type="primary" @click="addCourse()">Добавить курс</el-button>
-            </span>
-        </el-dialog>-->
     </div>
 </template>
 
