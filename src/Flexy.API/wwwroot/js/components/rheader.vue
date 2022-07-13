@@ -14,7 +14,9 @@
                         </span>
                         <span style="padding-right:10px">{{user.username}}</span>
                         <el-button type="primary" @click="logout" v-if="user.token">Выйти</el-button>
-                        <el-button type="primary" @click="isAuthWindow = true" v-else>Войти</el-button>
+                        <router-link to="/login" class="btn btn-link">
+                            <el-button type="primary">Войти</el-button>
+                        </router-link>
                     </div>
                 </div>
             </el-col>
