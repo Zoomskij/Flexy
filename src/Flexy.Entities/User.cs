@@ -10,7 +10,9 @@
         public string LastName { get; set; }
         public string Username { get; set; }
         public Role Role { get; set; }
-        IEnumerable<Goal> Goals { get; set; }
+        public IEnumerable<Goal> Goals { get; set; }
+        public Diary? Diary { get; set; }
+
         [JsonIgnore]
         public string PasswordHash { get; set; }
     }

@@ -1,7 +1,12 @@
 ﻿<template>
     <div>
-        <el-card class="box-card achievments">
-            <h3>Мои цели</h3>
+        <div style="display:flex; justify-content:space-between; padding-bottom:32px">
+            <span>
+                <span class="f1">МОИ,&nbsp;</span>
+                <span class="f2">ЦЕЛИ</span>
+            </span>
+        </div>
+        <div>
             <span v-for="goal in goals">
                 <el-alert :title="goal.text"
                           type="info">
@@ -9,7 +14,8 @@
                 <el-divider></el-divider>
             </span>
             <add-goal @listen="getGoals"></add-goal>
-        </el-card>
+        </div>
+
     </div>
 </template>
 

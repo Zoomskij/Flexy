@@ -52,6 +52,9 @@ services.AddTransient<IScenarioService, ScenarioService>();
 services.AddTransient<IMeetingRepository, MeetingRepository>();
 services.AddTransient<IMeetingService, MeetingService>();
 
+services.AddTransient<IDiaryRepository, DiaryRepository>();
+services.AddTransient<IDiaryService, DiaryService>();
+
 services.AddTransient<IImageService, ImageService>();
 
 services.AddDbContext<FlexyContext>();

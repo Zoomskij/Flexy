@@ -28,6 +28,7 @@ import Goals from "~/js/components/goals.vue";
 import RHeader from "~/js/components/rheader.vue";
 import LeftAside from "~/js/components/leftaside.vue";
 import Meetings from "~/js/components/Meetings.vue";
+import Diary from "~/js/components/Diary.vue";
 
 import HomePage from '~/js/components/HomePage.vue'
 import LoginPage from '~/js/components/LoginPage.vue'
@@ -72,6 +73,7 @@ function startOnLoad() {
             { path: '/achievments', caseSensitive: false, component: Achievments },
             { path: '/goals', caseSensitive: false, component: Goals },
             { path: '/meetings', caseSensitive: false, component: Meetings },
+            { path: '/diary', caseSensitive: false, component: Diary },
 
             // otherwise redirect to home
             { path: '*', redirect: '/' }

@@ -1,14 +1,18 @@
 ﻿<template>
     <div>
-        <el-card class="box-card">
-            <h3>Добавить цель</h3>
-            <div style="display: flex;">
-                <el-input placeholder="Цель" v-model="goal.text"></el-input>
-                <el-button @click="addGoal">Добавить цель</el-button>
-            </div>
 
-            <el-divider></el-divider>
-        </el-card>
+        <div style="display:flex; justify-content:space-between; padding-bottom:32px">
+            <span>
+                <span class="f1">ДОБАВИТЬ&nbsp;</span>
+                <span class="f2">ЦЕЛЬ</span>
+            </span>
+        </div>
+
+        <div style="display: flex;">
+            <el-input placeholder="Цель" v-model="goal.text"></el-input>
+            <el-button @click="addGoal">Добавить цель</el-button>
+        </div>
+
     </div>
 </template>
 

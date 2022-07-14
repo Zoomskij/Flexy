@@ -1,6 +1,11 @@
 ﻿<template>
     <div>
-        <h1>Hi {{account.user.firstName}}!</h1>
+        <div style="display:flex; justify-content:space-between; padding-bottom:32px">
+            <span>
+                <span class="f1">Привет,&nbsp;</span>
+                <span class="f2">{{account.user.firstName}}!</span>
+            </span>
+        </div>
 
     </div>
 </template>

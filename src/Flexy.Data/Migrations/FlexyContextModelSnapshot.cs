@@ -73,6 +73,52 @@ namespace Flexy.Data.Migrations
                     b.ToTable("Courses");
                 });
 
+            modelBuilder.Entity("Flexy.Entities.Diary", b =>
+                {
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Guid");
+
+                    b.ToTable("Diary");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.DiaryComment", b =>
+                {
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DiaryCommentGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("DiaryGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Guid");
+
+                    b.HasIndex("DiaryCommentGuid");
+
+                    b.HasIndex("DiaryGuid");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DiaryComment");
+                });
+
             modelBuilder.Entity("Flexy.Entities.Goal", b =>
                 {
                     b.Property<Guid>("Guid")
@@ -526,6 +572,9 @@ namespace Flexy.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<Guid?>("DiaryGuid")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -550,6 +599,8 @@ namespace Flexy.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DiaryGuid");
+
                     b.HasIndex("MeetingGuid");
 
                     b.ToTable("Users");
@@ -564,10 +615,27 @@ namespace Flexy.Data.Migrations
                     b.Navigation("Goal");
                 });
 
+            modelBuilder.Entity("Flexy.Entities.DiaryComment", b =>
+                {
+                    b.HasOne("Flexy.Entities.DiaryComment", null)
+                        .WithMany("Answers")
+                        .HasForeignKey("DiaryCommentGuid");
+
+                    b.HasOne("Flexy.Entities.Diary", null)
+                        .WithMany("Comment")
+                        .HasForeignKey("DiaryGuid");
+
+                    b.HasOne("Flexy.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Flexy.Entities.Goal", b =>
                 {
                     b.HasOne("Flexy.Entities.User", "Owner")
-                        .WithMany()
+                        .WithMany("Goals")
                         .HasForeignKey("OwnerId");
 
                     b.Navigation("Owner");
@@ -684,9 +752,15 @@ namespace Flexy.Data.Migrations
 
             modelBuilder.Entity("Flexy.Entities.User", b =>
                 {
+                    b.HasOne("Flexy.Entities.Diary", "Diary")
+                        .WithMany()
+                        .HasForeignKey("DiaryGuid");
+
                     b.HasOne("Flexy.Entities.Meeting", null)
                         .WithMany("Users")
                         .HasForeignKey("MeetingGuid");
+
+                    b.Navigation("Diary");
                 });
 
             modelBuilder.Entity("Flexy.Entities.CourseEntity", b =>
@@ -694,6 +768,16 @@ namespace Flexy.Data.Migrations
                     b.Navigation("Groups");
 
                     b.Navigation("Lessons");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.Diary", b =>
+                {
+                    b.Navigation("Comment");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.DiaryComment", b =>
+                {
+                    b.Navigation("Answers");
                 });
 
             modelBuilder.Entity("Flexy.Entities.GroupEntity", b =>
@@ -726,6 +810,11 @@ namespace Flexy.Data.Migrations
             modelBuilder.Entity("Flexy.Entities.StudentLessonId", b =>
                 {
                     b.Navigation("StudentTaskIds");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.User", b =>
+                {
+                    b.Navigation("Goals");
                 });
 #pragma warning restore 612, 618
         }

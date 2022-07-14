@@ -9,9 +9,6 @@
                         </router-link>
                     </div>
                     <div style="display:flex; justify-content: flex-end; align-items:center; padding: 4px; height:40px">
-                        <span style="padding-right:10px">
-                            <el-link href="http://zoomskij-001-site1.ctempurl.com/swagger/index.html" type="primary">Ознакомиться с API</el-link>
-                        </span>
                         <span style="padding-right:10px">{{user.username}}</span>
                         <el-button type="primary" @click="logout" v-if="user.token">Выйти</el-button>
                         <router-link to="/login" class="btn btn-link" v-else>
