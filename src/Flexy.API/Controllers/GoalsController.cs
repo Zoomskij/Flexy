@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Flexy.Entities;
 using Flexy.Services.Interfaces;
+using Flexy.API.Authorization;
 
 namespace Flexy.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class GoalsController : Controller
@@ -18,8 +20,13 @@ namespace Flexy.API.Controllers
         [Route("")]
         public IActionResult GetGoals()
         {
-            var achievments = _goalService.Get();
-            return Ok(achievments);
+            var currentUser = (User)HttpContext.Items["User"];
+            if (currentUser == null)
+                return BadRequest();
+
+            //Move to repository filter
+            var goals = _goalService.Get();
+            return Ok(goals.Where(x => x.Owner != null && x.Owner.Id == currentUser.Id));
         }
 
         [HttpPost]
@@ -50,7 +57,7 @@ namespace Flexy.API.Controllers
         [Route("")]
         public IActionResult DeleteGoal(Guid guid)
         {
-            var achievments = _goalService.DeleteAsync(guid);
+            var goals = _goalService.DeleteAsync(guid);
             return Ok();
         }
 
