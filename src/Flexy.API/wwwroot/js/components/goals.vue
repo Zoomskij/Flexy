@@ -9,7 +9,8 @@
         <div>
             <span v-for="goal in goals">
                 <el-alert :title="goal.text"
-                          type="info">
+                          type="warning"
+                          effect="dark">
                 </el-alert>
                 <el-divider></el-divider>
             </span>

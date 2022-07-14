@@ -3,9 +3,12 @@
         <el-row>
             <el-col :span="24">
                 <div style="display: flex; justify-content: space-between;">
-                    <div style="display:flex; justify-content: flex-start; align-items:center">
+                    <div style="display:flex; justify-content: flex-start; align-items:center;padding-left:50px; cursor:pointer">
                         <router-link to="/" tag="div">
-                            <h3>Flexy</h3>
+                            <span>
+                                <span class="f1">ФЛЕК</span>
+                                <span class="f2">СИ</span>
+                            </span>
                         </router-link>
                     </div>
                     <div style="display: flex; justify-content: flex-end; align-items: center; padding: 4px; height: 64px">
