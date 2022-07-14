@@ -26,7 +26,7 @@ namespace Flexy.API.Controllers
 
             //Move to repository filter
             var goals = _goalService.Get();
-            return Ok(goals.Where(x => x.Owner != null && x.Owner.Id == currentUser.Id));
+            return Ok(goals);
         }
 
         [HttpPost]
