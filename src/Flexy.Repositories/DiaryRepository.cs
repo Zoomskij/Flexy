@@ -22,7 +22,7 @@ namespace Flexy.Repositories
 
         public IEnumerable<DiaryComment> Get()
         {
-            var data = _dbSet.AsNoTracking();
+            var data = _dbSet.AsNoTracking().Include(x => x.User);
             return data;
         }
 

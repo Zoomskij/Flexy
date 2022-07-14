@@ -68,6 +68,7 @@
 
     .el-menu {
         background-color: #181C1F !important;
+        height: 100% !important;
     }
     .el-menu-item {
         color: #E2B988 !important;

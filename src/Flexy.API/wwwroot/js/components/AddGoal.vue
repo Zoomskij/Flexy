@@ -10,7 +10,7 @@
 
         <div style="display: flex;">
             <el-input placeholder="Цель" v-model="goal.text"></el-input>
-            <el-button @click="addGoal">Добавить цель</el-button>
+            <el-button @click="addGoal" style="padding-left:10px">Добавить цель</el-button>
         </div>
 
     </div>

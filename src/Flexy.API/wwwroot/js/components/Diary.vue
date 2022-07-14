@@ -11,28 +11,22 @@
 
             <div style="display: flex;">
                 <el-input v-model="comment.text"></el-input>
-                <el-button @click="addDiaryComment">Добавить запись</el-button>
+                <el-button @click="addDiaryComment" style="padding-left:10px">Добавить запись</el-button>
             </div>
 
-            <div>
-                <span v-for="diaryComment in diaryComments">
-                    <span>{{diaryComment.text}}</span>
-                    <el-divider></el-divider>
-                </span>
+            <div style="padding-top:10px">
+                <diary-comment :comment="diaryComment" v-for="diaryComment in diaryComments"></diary-comment>
             </div>
 
-            <!--<div style="display: flex;">
-        <meeting :meeting="meeting" v-for="meeting in meetings"></meeting>
-    </div>-->
         </div>
     </div>
 </template>
 
 <script>
-/*    import AddGoal from "~/js/components/AddGoal.vue";*/
+    import DiaryComment from "~/js/components/DiaryComment.vue";
     export default {
         name: 'diary',
-/*        components: { 'add-goal': AddGoal },*/
+        components: { 'diary-comment': DiaryComment },
         data() {
             return {
                 comment: {

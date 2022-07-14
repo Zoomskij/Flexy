@@ -10,6 +10,7 @@
     "element-ui": "^2.15.6",
     "html-webpack-plugin": "^5.5.0",
     "install": "^0.13.0",
+    "moment": "^2.29.4",
     "npm": "^8.3.0",
     "vee-validate": "^2.2.8",
     "vue": "^2.6.14",
