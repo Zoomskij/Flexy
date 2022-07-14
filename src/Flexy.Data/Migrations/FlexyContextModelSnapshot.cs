@@ -81,7 +81,7 @@ namespace Flexy.Data.Migrations
 
                     b.HasKey("Guid");
 
-                    b.ToTable("Diary");
+                    b.ToTable("Diaries");
                 });
 
             modelBuilder.Entity("Flexy.Entities.DiaryComment", b =>
@@ -116,7 +116,31 @@ namespace Flexy.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("DiaryComment");
+                    b.ToTable("DiaryComments");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.DiaryCommentLike", b =>
+                {
+                    b.Property<Guid>("Guid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DiaryCommentGuid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int?>("Reaction")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Guid");
+
+                    b.HasIndex("DiaryCommentGuid");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("DiaryCommentLikes");
                 });
 
             modelBuilder.Entity("Flexy.Entities.Goal", b =>
@@ -628,6 +652,23 @@ namespace Flexy.Data.Migrations
                     b.HasOne("Flexy.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Flexy.Entities.DiaryCommentLike", b =>
+                {
+                    b.HasOne("Flexy.Entities.DiaryComment", "DiaryComment")
+                        .WithMany()
+                        .HasForeignKey("DiaryCommentGuid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Flexy.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("DiaryComment");
 
                     b.Navigation("User");
                 });

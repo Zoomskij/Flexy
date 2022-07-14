@@ -11,12 +11,19 @@
 
             <div style="display: flex;">
                 <el-input v-model="comment.text"></el-input>
-                <el-button @click="addGoal">Добавить цель</el-button>
+                <el-button @click="addDiaryComment">Добавить запись</el-button>
+            </div>
+
+            <div>
+                <span v-for="diaryComment in diaryComments">
+                    <span>{{diaryComment.text}}</span>
+                    <el-divider></el-divider>
+                </span>
             </div>
 
             <!--<div style="display: flex;">
-                <meeting :meeting="meeting" v-for="meeting in meetings"></meeting>
-            </div>-->
+        <meeting :meeting="meeting" v-for="meeting in meetings"></meeting>
+    </div>-->
         </div>
     </div>
 </template>
@@ -38,12 +45,30 @@
 
         },
         methods: {
+            getDiaryComments: function () {
+                var self = this;
+                this.$axios.get('/diary')
+                    .then(function (response) {
+                        self.diaryComments = response.data;
+                    });
+            },
 
+            addDiaryComment: function () {
+                var self = this;
+                this.$axios.post('/diary', this.comment).then(function (response) {
+                    console.log(response);
+                    self.comment.text = '';
+                    self.getDiaryComments();
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
         },
         created() {
 
         },
         mounted() {
+            this.getDiaryComments();
         }
     }
 </script>

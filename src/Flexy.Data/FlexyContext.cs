@@ -28,6 +28,9 @@ namespace Flexy.Data
         public DbSet<Goal> Goals { get; set; }
         public DbSet<Scenario> Scenarios { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<Diary> Diaries { get; set; }
+        public DbSet<DiaryComment> DiaryComments { get; set; }
+        public DbSet<DiaryCommentLike> DiaryCommentLikes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
