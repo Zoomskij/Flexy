@@ -31,6 +31,8 @@ namespace Flexy.Data
         public DbSet<Diary> Diaries { get; set; }
         public DbSet<DiaryComment> DiaryComments { get; set; }
         public DbSet<DiaryCommentLike> DiaryCommentLikes { get; set; }
+        public DbSet<Character> Characters { get; set; }
+        public DbSet<UserCharacter> UserCharacters { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
