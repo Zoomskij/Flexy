@@ -1,26 +1,28 @@
 ﻿<template>
-    <div>
-        <h2>Register</h2>
+    <div style="width:300px">
+        <h2>Регистрация</h2>
         <form @submit.prevent="handleSubmit">
             <div class="form-group">
-                <label for="firstName">First Name</label>
-                <input type="text" v-model="user.firstName" name="firstName" class="form-control" />
+                <label for="firstName">Имя</label>
+                <el-input v-model="user.firstName" name="username" width="300"></el-input>
             </div>
             <div class="form-group">
-                <label for="lastName">Last Name</label>
-                <input type="text" v-model="user.lastName"  name="lastName" class="form-control"  />
+                <label for="lastName">Фамилия</label>
+                <el-input v-model="user.lastName" name="username" width="300"></el-input>
             </div>
             <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" v-model="user.username"  name="username" class="form-control"  />
+                <label for="username">Логин</label>
+                <el-input v-model="user.username" name="username" width="300"></el-input>
             </div>
             <div class="form-group">
-                <label htmlFor="password">Password</label>
-                <input type="password" v-model="user.password" name="password" class="form-control" />
+                <label htmlFor="password">Пароль</label>
+                <el-input v-model="user.password" name="password" width="300" type="password"></el-input>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary" >Register</button>
-                <router-link to="/login" class="btn btn-link">Cancel</router-link>
+                <button class="btn btn-primary">Регистрация</button>
+                <router-link to="/login">
+                    <el-link type="primary">Отмена</el-link>
+                </router-link>
             </div>
         </form>
     </div>
@@ -67,3 +69,9 @@
         }
     };
 </script>
+
+<style>
+    .form-group {
+        padding-top: 10px;
+    }
+</style>

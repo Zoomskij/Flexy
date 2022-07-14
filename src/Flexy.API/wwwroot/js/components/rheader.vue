@@ -8,10 +8,10 @@
                             <h3>Flexy</h3>
                         </router-link>
                     </div>
-                    <div style="display:flex; justify-content: flex-end; align-items:center; padding: 4px; height:40px">
-                        <div>
+                    <div style="display: flex; justify-content: flex-end; align-items: center; padding: 4px; height: 64px">
+                        <!--<div>
                             <img src="https://x.boardgamearena.net/data/avatar/0/89/89706/89706650_184.jpg?h=020a78627c" width="64" height="64" style="border-radius:50%" />
-                        </div>
+                        </div>-->
                         <span style="padding-right:10px">{{user.username}}</span>
                         <el-button type="primary" @click="logout" v-if="user.token">Выйти</el-button>
                         <router-link to="/login" class="btn btn-link" v-else>

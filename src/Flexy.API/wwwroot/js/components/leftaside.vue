@@ -18,6 +18,7 @@
             return {
                 menuItems: [
                     { name: 'Профиль', icon: 'el-icon-user', url: '/profile' },
+                    { name: 'Вдохновители', icon: 'el-icon-view', url: '/masterminds' },
                     { name: 'Цели и мечты', icon: 'el-icon-finished', url: '/goals' },
                     { name: 'Дневник Чемпиона', icon: 'el-icon-notebook-2', url: '/diary' },
                     { name: 'Советы и мотивации', icon: 'el-icon-coffee-cup', url: '/motivation' },

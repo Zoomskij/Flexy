@@ -35,6 +35,7 @@ import LoginPage from '~/js/components/LoginPage.vue'
 import RegisterPage from '~/js/components/RegisterPage.vue'
 
 import AddMeeting from '~/js/components/AddMeeting.vue'
+import MasterMinds from '~/js/components/MasterMinds.vue';
 
 Vue.use(VueRouter);
 locale.use(ruLocale);
@@ -74,6 +75,8 @@ function startOnLoad() {
             { path: '/goals', caseSensitive: false, component: Goals },
             { path: '/meetings', caseSensitive: false, component: Meetings },
             { path: '/diary', caseSensitive: false, component: Diary },
+            { path: '/masterminds', caseSensitive: false, component: MasterMinds },
+            
 
             // otherwise redirect to home
             { path: '*', redirect: '/' }

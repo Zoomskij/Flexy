@@ -11,17 +11,23 @@ namespace Flexy.API.Controllers
     public class DiaryController : Controller
     {
         private readonly IDiaryService _diaryService;
+        private readonly User _currentUser;
         public DiaryController(IDiaryService diaryService)
         {
-            _diaryService = diaryService; 
+            _diaryService = diaryService;
         }
 
         [HttpGet]
         [Route("")]
         public IActionResult GetGoals()
         {
-            var achievments = _diaryService.Get();
-            return Ok(achievments);
+            var currentUser = (User)HttpContext.Items["User"];
+            if (currentUser == null)
+                return BadRequest();
+
+            var diaryComments = _diaryService.Get();
+            //Move to repository filter
+            return Ok(diaryComments.Where(x => x.User != null && x.User.Id == currentUser.Id));
         }
 
         [HttpPost]
