@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale'
 import ruLocale from 'element-ui/lib/locale/lang/ru-RU'
-import 'element-theme-dark';
+/*import 'element-theme-dark';*/
 
 /*import { router } from '~/js/helpers/router.js';*/
 

@@ -1,29 +1,32 @@
 ﻿<template>
     <div class="header">
-        <el-row>
-            <el-col :span="24">
-                <div style="display: flex; justify-content: space-between;">
-                    <div style="display:flex; justify-content: flex-start; align-items:center;padding-left:50px; cursor:pointer">
-                        <router-link to="/" tag="div">
-                            <span>
-                                <span class="f1">ФЛЕК</span>
-                                <span class="f2">СИ</span>
-                            </span>
-                        </router-link>
-                    </div>
-                    <div style="display: flex; justify-content: flex-end; align-items: center; padding: 4px; height: 64px">
-                        <!--<div>
-                            <img src="https://x.boardgamearena.net/data/avatar/0/89/89706/89706650_184.jpg?h=020a78627c" width="64" height="64" style="border-radius:50%" />
-                        </div>-->
-                        <span style="padding-right:10px">{{user.username}}</span>
-                        <el-button type="primary" @click="logout" v-if="user.token">Выйти</el-button>
-                        <router-link to="/login" class="btn btn-link" v-else>
-                            <el-button type="primary">Войти</el-button>
-                        </router-link>
-                    </div>
-                </div>
-            </el-col>
-        </el-row>
+
+        <div style="display: flex; justify-content: flex-start; align-items: center;">
+            <div style="display:flex; justify-content: flex-start; align-items:center;padding-left:50px; cursor:pointer">
+                <router-link to="/" tag="div">
+                    <img src="https://raw.githubusercontent.com/Zoomskij/ImagesForBot/main/logo.png" width="178" height="28" />
+                </router-link>
+            </div>
+            <div style="display:flex; padding-left:220px">
+                <router-link to="/" tag="div">
+                    <span class="menu-item-span">Главная</span>
+                </router-link>
+                <router-link to="/" tag="div">
+                    <span class="menu-item-span">О Вдохновителях</span>
+                </router-link>
+            </div>
+            <div style="position:fixed; right: 0; display: flex; justify-content: flex-end; align-items: center; padding: 4px; height: 64px">
+
+                <span style="padding-right:10px" class="menu-item-span">{{user.username}}</span>
+                <span class="menu-item-span" @click="logout" v-if="user.token">Выйти</span>
+                <router-link to="/login" class="btn btn-link" v-else>
+                    <span class="menu-item-span">Войти</span>
+                </router-link>
+                <span class="menu-item-span">Дневник мечты</span>
+                
+            </div>
+        </div>
+
 
         <el-dialog title="Авторизация" :visible.sync="isAuthWindow">
             <el-input placeholder="username" v-model="authenticateRequest.username"></el-input>
@@ -133,7 +136,23 @@
     .header {
         position: fixed;
         width: 100%;
-        height: 100px;
-        z-index:1000;
+        height: 112px;
+        z-index: 1000;
+        border-bottom: solid 1px #F876A5 !important;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
     }
+
+
+    .menu-item-span {
+        font-size: 13px;
+        padding-left: 10px;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+
+        .menu-item-span:hover, select {
+            color: #FFE600;
+        }
 </style>

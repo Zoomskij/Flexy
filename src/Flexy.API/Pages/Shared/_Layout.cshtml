@@ -4,8 +4,8 @@
     @await RenderSectionAsync("Styles", required: false)
 <!-- import CSS -->
 @*<link rel="stylesheet" href="~/dist/bundle.css" />*@
-@*<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">*@
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inter" />
 <!-- import JavaScript -->
 @*
 <script src="~/dist/bundle.js"></script>
@@ -22,14 +22,49 @@
 <style>
 
     html {
-        background: #181C1F !important;
+        color:white;
     }
 
     body {
+        background-color: white;
+        background: url(/img/background.jpg) no-repeat; /* Параметры фона */
+        background-size: 100% auto;
         display: block;
         margin: 0px !important;
-        background-color: #181C1F;
+        /*background-color: #181C1F;*/
         height: 100%;
         font-family: Cabin !important;
+    }
+
+        .span1 {
+        font-family: Inter;
+        font-size: 59px;
+        font-weight: 600;
+        line-height: 71px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .span2 {
+        font-family: Inter;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        font-family: Inter;
+        text-align: left;
+        color: #FFFFFF;
+    }
+
+    .span3 {
+        font-family: Inter;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #FFFFFF;
     }
 </style>

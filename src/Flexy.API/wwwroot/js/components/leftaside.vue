@@ -3,8 +3,7 @@
         <el-menu class="el-menu-vertical-demo">
             <router-link :to="menuItem.url" tag="div" v-for="menuItem in menuItems">
                 <el-menu-item>
-                    <i :class="menuItem.icon"></i>
-                    <span style="font-size:20px; padding-left:10px">{{menuItem.name}}</span>
+                    <span class="menu-item-span">{{menuItem.name}}</span>
                 </el-menu-item>
             </router-link>
         </el-menu>
@@ -18,11 +17,13 @@
             return {
                 menuItems: [
                     { name: 'Профиль', icon: 'el-icon-user', url: '/profile' },
-                    { name: 'Вдохновители', icon: 'el-icon-view', url: '/masterminds' },
-                    { name: 'Цели и мечты', icon: 'el-icon-finished', url: '/goals' },
+                    { name: 'Дневник мечты', icon: 'el-icon-finished', url: '/goals' },
                     { name: 'Дневник Чемпиона', icon: 'el-icon-notebook-2', url: '/diary' },
                     { name: 'Советы и мотивации', icon: 'el-icon-coffee-cup', url: '/motivation' },
                     { name: 'Встречи', icon: 'el-icon-connection', url: '/meetings' },
+
+
+                    //{ name: 'Вдохновители', icon: 'el-icon-view', url: '/masterminds' },
                     //{ name: 'Персонажи', icon: 'el-icon-user', url: '/teachers' },
                     //{ name: 'Достижения', icon: 'el-icon-medal-1', url: '/achievments' },
 
@@ -54,8 +55,8 @@
         top: 0;
         bottom: 0;
         width: 100%;
-        max-width: 256px;
-        margin-top: 100px;
+        max-width: 230px;
+        margin-top: 113px;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
@@ -63,16 +64,36 @@
     }
 
     .menu-item {
-        font-size: 24px;
+        font-family: Inter;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 13px;
+        letter-spacing: 0.04em;
+        text-align: left;
         padding-top: 18px;
     }
 
     .el-menu {
-        background-color: #181C1F !important;
         height: 100% !important;
+        background-color: transparent !important;
+        border-right: solid 1px #F876A5 !important;
     }
     .el-menu-item {
-        color: #E2B988 !important;
-        /*        font-family: Cabin-Regular !important;*/
+        color: #FFFFFF !important;
+        font-family: Inter !important;
+        padding-left: 50px !important;
+    }
+
+    .menu-item-span {
+        font-size: 13px;
+        padding-left: 10px;
+    }
+        .menu-item-span:hover, select {
+            color: #FFE600;
+        }
+
+    .el-menu-item:focus, .el-menu-item:hover {
+        outline: 0 !important;
+        background-color: transparent !important;
     }
 </style>
